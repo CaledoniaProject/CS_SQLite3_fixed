@@ -162,7 +162,8 @@ namespace CS_SQLite3
               }
             case CSSQLite.SQLITE_BLOB:
               {
-                columnValues[i] = CSSQLite.sqlite3_column_blob( vm, i );
+                byte[] data = CSSQLite.sqlite3_column_blob( vm, i );
+                columnValues[i] = Convert.ToBase64String(data);
                 break;
               }
             default:
